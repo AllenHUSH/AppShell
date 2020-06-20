@@ -1,63 +1,96 @@
-'use strict'
+"use strict";
 
-import { app, protocol, BrowserWindow } from 'electron'
+import {
+  app,
+  protocol,
+  BrowserWindow,
+  Menu,
+  ipcMain
+} from "electron";
 import {
   createProtocol,
   /* installVueDevtools */
-} from 'vue-cli-plugin-electron-builder/lib'
-const isDevelopment = process.env.NODE_ENV !== 'production'
+} from "vue-cli-plugin-electron-builder/lib";
+const isDevelopment = process.env.NODE_ENV !== "production";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win;
 
 // Scheme must be registered before the app is ready
-protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true, standard: true } }])
+protocol.registerSchemesAsPrivileged([{
+  scheme: "app",
+  privileges: {
+    secure: true,
+    standard: true
+  }
+}, ]);
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600, webPreferences: {
-    // Use pluginOptions.nodeIntegration, leave this alone
-    // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-    nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
-  } })
+  win = new BrowserWindow({
+    width: 1080,
+    height: 768,
+    minWidth: 350,
+    minHeight: 350,
+    frame: false,
+    show: false,
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      // Use pluginOptions.nodeIntegration, leave this alone
+      // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
+      // nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      nodeIntegration: true,
+    },
+  });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
-    win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
+    if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
-    createProtocol('app')
+    createProtocol("app");
     // Load the index.html when not in development
-    win.loadURL('app://./index.html')
+    win.loadURL("app://./index.html");
   }
 
-  win.on('closed', () => {
-    win = null
-  })
+  // 创建导航栏
+  createMenu();
+
+  win.once("ready-to-show", () => {
+    win.show();
+  });
+
+  win.on("resize", () => {
+    win.webContents.send("isMaximized", win.isMaximized() || win.isFullScreen());
+  });
+
+  win.on("closed", () => {
+    win = null;
+  });
 }
 
 // Quit when all windows are closed.
-app.on('window-all-closed', () => {
+app.on("window-all-closed", () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit()
+  if (process.platform !== "darwin") {
+    app.quit();
   }
-})
+});
 
-app.on('activate', () => {
+app.on("activate", () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {
-    createWindow()
+    createWindow();
   }
-})
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', async () => {
+app.on("ready", async () => {
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     // Devtools extensions are broken in Electron 6.0.0 and greater
@@ -70,22 +103,59 @@ app.on('ready', async () => {
     // } catch (e) {
     //   console.error('Vue Devtools failed to install:', e.toString())
     // }
-
   }
-  createWindow()
-})
+  createWindow();
+});
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
-  if (process.platform === 'win32') {
-    process.on('message', data => {
-      if (data === 'graceful-exit') {
-        app.quit()
+  if (process.platform === "win32") {
+    process.on("message", (data) => {
+      if (data === "graceful-exit") {
+        app.quit();
       }
-    })
+    });
   } else {
-    process.on('SIGTERM', () => {
-      app.quit()
-    })
+    process.on("SIGTERM", () => {
+      app.quit();
+    });
   }
 }
+
+function createMenu() {
+  // darwin表示macOS，针对macOS的设置
+  if (process.platform === "darwin") {
+    const template = [{
+      label: "App Demo",
+      submenu: [{
+          role: "about",
+        },
+        {
+          role: "quit",
+        },
+      ],
+    }, ];
+    let menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+  } else {
+    // windows及linux系统
+    Menu.setApplicationMenu(null);
+  }
+}
+
+ipcMain.on("window-min", () => win.minimize());
+
+ipcMain.on("window-max", () => {
+  win.isMaximized() ? win.unmaximize() : win.maximize();
+});
+
+ipcMain.on("window-close", () => {
+  win.close();
+});
+
+ipcMain.on("appState", (e) => {
+  e.reply("appState", {
+    platform: process.platform,
+    isMaximized: win.isMaximized() || win.isFullScreen()
+  })
+})

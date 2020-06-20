@@ -1,3 +1,9 @@
 {
-  "message": "hello i18n !!"
+  "application": {
+    "name": "App Shell"
+  },
+  "router": {
+    "home": "Home",
+    "about": "About"
+  }
 }

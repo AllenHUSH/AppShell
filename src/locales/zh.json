@@ -1,3 +1,10 @@
 {
-  "message": "hello i18n !!"
+  "application":{
+    "name":"应用外壳"
+  },
+  "router": {
+    "home": "首页",
+    "about": "关于",
+    "chess":"三子棋"
+  }
 }
