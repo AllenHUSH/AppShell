@@ -1,29 +1,17 @@
-# app_shell
+# 一个快速Electron应用外壳
 
-## Project setup
-```
-npm install
-```
+## 相关技术栈
++ vue
++ vuex
++ vueRouter
++ electron 9.X
++ stylus
++ vuetify
++ vue-i18n
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 基础特点
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
++ Windows、macOS自定义[最小化、最大化、关闭]按钮
++ 支持[亮色主题/暗色主题]自动、手动切换
++ 支持用户自定义主题颜色
++ 支持国际化

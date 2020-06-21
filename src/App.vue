@@ -24,6 +24,9 @@
       <template v-slot:append>
         <v-divider></v-divider>
         <div class="d-flex pa-2">
+          <v-btn icon @click="electron.shell.openExternal('https://github.com/AllenHUSH/AppShell')">
+            <v-icon>mdi-github</v-icon>
+          </v-btn>
           <v-spacer></v-spacer>
           <v-menu>
             <template v-slot:activator="{ on, attrs }">
@@ -56,7 +59,7 @@
       :class="{'show-darwin-btn':(platform==='darwin'&&!isMaximized)}"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" style="-webkit-app-region: no-drag;"></v-app-bar-nav-icon>
-      <v-toolbar-title  style="-webkit-user-select: none;">{{$t('application.name')}}</v-toolbar-title>
+      <v-toolbar-title style="-webkit-user-select: none;">{{$t('application.name')}}</v-toolbar-title>
       <v-spacer></v-spacer>
       <WinBtn />
     </v-app-bar>
@@ -79,7 +82,7 @@ import theme from "@/mixins/theme";
 // 在App.vue生命周期中获取全局相关变量
 import appState from "@/mixins/appState";
 // 仅在Windows系统下显示的模拟[最小化、最大化、关闭]按钮
-import WinBtn from "@/components/WinBtn";
+import WinBtn from "@/components/app/WinBtn";
 
 export default {
   name: "App",
@@ -126,6 +129,6 @@ export default {
 
 .show-darwin-nav {
   height: 15px;
-  width 100%
+  width: 100%;
 }
 </style>
