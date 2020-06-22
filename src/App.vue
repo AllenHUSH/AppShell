@@ -44,6 +44,14 @@
               </v-list-item>
             </v-list>
           </v-menu>
+          <v-dialog v-model="dialog" width="1000">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn icon v-bind="attrs" v-on="on">
+                <v-icon>mdi-palette</v-icon>
+              </v-btn>
+            </template>
+            <ThemeDesign :dialog="dialog"/>
+          </v-dialog>
           <v-btn icon @click="changeMode()">
             <v-icon>mdi-brightness-{{ [5,'auto',7][themeMode] }}</v-icon>
           </v-btn>
@@ -83,12 +91,14 @@ import theme from "@/mixins/theme";
 import appState from "@/mixins/appState";
 // 仅在Windows系统下显示的模拟[最小化、最大化、关闭]按钮
 import WinBtn from "@/components/app/WinBtn";
+import ThemeDesign from "@/components/app/ThemeDesign";
 
 export default {
   name: "App",
   mixins: [theme, appState],
-  components: { WinBtn },
+  components: { WinBtn, ThemeDesign },
   data: () => ({
+    dialog: false,
     drawer: null,
     languageList: [
       { label: "中文", value: "zh" },

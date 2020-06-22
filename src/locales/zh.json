@@ -5,20 +5,11 @@
   "themePallet":{
     "title":"主题调色板",
     "subtitle":"我们可以创建多个模式，也可以创建多个主题，模式与主题是多对一的关系。当且仅当满足模式的条件，才会应用对应的主题。",
-    "setMode":"设定模式",
+    "setTheme":"设定模式",
     "designTheme":"设计主题",
-    "lightMode": {
-      "name": "浅色模式",
-      "condition": "恒定浅色模式"
-    },
-    "autoMode": {
-      "name": "自动模式",
-      "condition": "跟随系统模式"
-    },
-    "darkMode": {
-      "name": "深色模式",
-      "condition": "恒定深色模式"
-    }
+    "lightTheme": "浅色主题",
+    "autoTheme": "自动主题",
+    "darkTheme": "深色主题"
   },
   "router": {
     "home": "首页",

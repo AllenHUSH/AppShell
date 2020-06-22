@@ -5,20 +5,11 @@
   "themePallet": {
     "title": "Theme Pallet",
     "subtitle": "We can create multiple patterns or multiple themes, and patterns and themes are many-to-one. The corresponding topic is applied if and only if the pattern condition is satisfied.",
-    "setMode": "Set Mode",
+    "setTheme": "Set Theme",
     "designTheme": "Design Theme",
-    "lightMode": {
-      "name": "Light Mode",
-      "condition": "Constant light color pattern"
-    },
-    "autoMode": {
-      "name": "Auto Mode",
-      "condition": "Follow system mode"
-    },
-    "darkMode": {
-      "name": "Dark Mode",
-      "condition": "Constant dark color pattern"
-    }
+    "lightTheme":"Light Theme",
+    "autoTheme": "Auto Theme",
+    "darkTheme": "Dark Theme"
   },
   "router": {
     "home": "Home",
