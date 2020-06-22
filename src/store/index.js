@@ -24,8 +24,6 @@ export default new Vuex.Store({
       localStorage.setItem("themeMode", state.themeMode);
     },
     setThemeMode(state, themeMode) {
-      console.log(themeMode);
-      
       state.themeMode = themeMode;
       localStorage.setItem("themeMode", themeMode);
     },
