@@ -45,7 +45,7 @@
             </v-list>
           </v-menu>
           <v-btn icon @click="changeMode()">
-            <v-icon>mdi-brightness-{{ 5 + themeMode }}</v-icon>
+            <v-icon>mdi-brightness-{{ [5,'auto',7][themeMode] }}</v-icon>
           </v-btn>
         </div>
       </template>
