@@ -17,4 +17,5 @@
 
 ## TODO
 + 支持用户自定义主题颜色
-+ drag对浮动nav首行的影响
++ drag在Windows下对浮动nav首行的影响
++ icon、app title
