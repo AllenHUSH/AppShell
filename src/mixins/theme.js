@@ -5,7 +5,9 @@
  * 为2时 深色
  * sysDarkTheme为媒体查询操作系统主题配色
  */
+import colorList from "@/mixins/data/colorList"
 export default {
+  mixins:[colorList],
   data() {
     return {
       sysDarkTheme: window.matchMedia("(prefers-color-scheme: dark)"),
@@ -37,6 +39,11 @@ export default {
     this.querySysTheme();
     // 为媒体查询创建监听器，当系统主题变化时应用主题可能变化
     this.sysDarkTheme.addListener(this.querySysTheme);
+    // 恢复主题颜色
+    this.colorList.forEach(color=>{
+      this.$vuetify.theme.themes.light[color.name] = localStorage.getItem(`light:${color.name}`) || color.lightColorValue;
+      this.$vuetify.theme.themes.dark[color.name] = localStorage.getItem(`dark:${color.name}`) || color.darkColorValue;
+    })
   },
   methods: {
     changeMode() {
@@ -55,5 +62,5 @@ export default {
         return true
       }
     }
-  },
+  }
 };

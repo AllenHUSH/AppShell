@@ -4,12 +4,14 @@
   },
   "themePallet": {
     "title": "Theme Pallet",
-    "subtitle": "We can create multiple patterns or multiple themes, and patterns and themes are many-to-one. The corresponding topic is applied if and only if the pattern condition is satisfied.",
+    "subtitle": "Change the light and dark theme presets, and can be reset at any time",
     "setTheme": "Set Theme",
     "designTheme": "Design Theme",
     "lightTheme":"Light Theme",
     "autoTheme": "Auto Theme",
-    "darkTheme": "Dark Theme"
+    "darkTheme": "Dark Theme",
+    "reset":"Reset",
+    "setAs":"Set as"
   },
   "router": {
     "home": "Home",

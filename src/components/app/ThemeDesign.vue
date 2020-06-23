@@ -27,8 +27,10 @@
 </template>
 
 <script>
+import colorList from "@/mixins/data/colorList"
 import ThemeColor from "@/components/app/ThemeColor";
 export default {
+  mixins:[colorList],
   components: { ThemeColor },
   props: {
     dialog: {
@@ -39,16 +41,7 @@ export default {
     return {
       beforeThemeMode: 0,
       tab: 0,
-      color: "",
-      colorList: [
-        { name: "primary", lightColorValue: "#1976D2", darkColorValue: "" },
-        { name: "secondary", lightColorValue: "#424242", darkColorValue: "" },
-        { name: "accent", lightColorValue: "#82B1FF", darkColorValue: "" },
-        { name: "success", lightColorValue: "#4CAF50", darkColorValue: "" },
-        { name: "warning", lightColorValue: "#FFC107", darkColorValue: "" },
-        { name: "error", lightColorValue: "#FF5252", darkColorValue: "" },
-        { name: "info", lightColorValue: "#2196F3", darkColorValue: "" }
-      ]
+      color: ""
     };
   },
   computed: {
