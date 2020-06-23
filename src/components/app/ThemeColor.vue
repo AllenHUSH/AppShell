@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div v-for="(colorName, index) in colorNameList" :key="index">
-      <v-btn :color="colorName" outlined rounded>
+    <div v-for="(color, index) in colorList" :key="index" class="ma-1">
+      <v-btn :color="color.name" outlined tile @click="setColor(color.name)">
+        设定为
         <v-icon>mdi-brightness-1</v-icon>
-        {{colorName}}
+        {{color.name}}
       </v-btn>
+      <v-btn text tile :color="color.name" @click="setColor(color.name,color[`${theme}ColorValue`])">恢复</v-btn>
     </div>
   </div>
 </template>
@@ -15,20 +17,18 @@ export default {
     theme: {
       type: String,
       default: "light"
+    },
+    colorList: {
+      type: Array
+    },
+    color: {
+      type: String
     }
   },
-  data() {
-    return {
-      colorNameList: [
-        "primary",
-        "secondary",
-        "accent",
-        "success",
-        "warning",
-        "error",
-        "info"
-      ]
-    };
+  methods: {
+    setColor(colorName, colorValue = this.color) {
+      this.$vuetify.theme.themes[this.theme][colorName] = colorValue;
+    }
   }
 };
 </script>
