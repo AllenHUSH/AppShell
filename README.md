@@ -19,3 +19,4 @@
 ## TODO
 + drag在Windows下对浮动nav首行的影响
 + icon、app title
++ build后启动页丢失
