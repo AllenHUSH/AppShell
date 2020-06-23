@@ -18,10 +18,10 @@ export default {
   name: "WinBtn",
   computed: {
     platform() {
-      return this.$store.state.platform;
+      return this.$store.state.appState.platform;
     },
     isMaximized(){
-      return this.$store.state.isMaximized
+      return this.$store.state.appState.isMaximized
     }
   },
   methods: {

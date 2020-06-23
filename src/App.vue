@@ -122,10 +122,10 @@ export default {
       return this.$store.state.username;
     },
     platform() {
-      return this.$store.state.platform;
+      return this.$store.state.appState.platform;
     },
     isMaximized() {
-      return this.$store.state.isMaximized;
+      return this.$store.state.appState.isMaximized;
     }
   }
 };

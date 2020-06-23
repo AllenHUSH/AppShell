@@ -14,10 +14,10 @@ export default {
   },
   computed: {
     isDarkTheme() {
-      return this.$store.state.isDarkTheme
+      return this.$store.state.theme.isDarkTheme
     },
     themeMode() {
-      return this.$store.state.themeMode
+      return this.$store.state.theme.themeMode
     }
   },
   watch: {

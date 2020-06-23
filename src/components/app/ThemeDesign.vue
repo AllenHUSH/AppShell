@@ -36,13 +36,13 @@ export default {
   },
   computed: {
     isDarkTheme() {
-      return this.$store.state.isDarkTheme;
+      return this.$store.state.theme.isDarkTheme;
     }
   },
   watch: {
     dialog(val) {
       if (val) {
-        this.beforeThemeMode = this.$store.state.themeMode;
+        this.beforeThemeMode = this.$store.state.theme.themeMode;
       } else {
         this.$store.commit("setThemeMode", this.beforeThemeMode);
       }
