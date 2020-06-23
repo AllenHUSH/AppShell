@@ -7,11 +7,12 @@
     "subtitle": "Change the light and dark theme presets, and can be reset at any time",
     "setTheme": "Set Theme",
     "designTheme": "Design Theme",
-    "lightTheme":"Light Theme",
+    "lightTheme": "Light Theme",
     "autoTheme": "Auto Theme",
     "darkTheme": "Dark Theme",
-    "reset":"Reset",
-    "setAs":"Set as"
+    "reset": "Reset",
+    "setAs": "Set as",
+    "eyedropper": "Eyedropper"
   },
   "router": {
     "home": "Home",

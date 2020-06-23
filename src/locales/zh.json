@@ -1,17 +1,18 @@
 {
-  "application":{
-    "name":"应用外壳"
+  "application": {
+    "name": "应用外壳"
   },
-  "themePallet":{
-    "title":"主题调色板",
-    "subtitle":"更改明暗两种主题预设，并可随时重置",
-    "setTheme":"设定模式",
-    "designTheme":"设计主题",
+  "themePallet": {
+    "title": "主题调色板",
+    "subtitle": "更改明暗两种主题预设，并可随时重置",
+    "setTheme": "设定模式",
+    "designTheme": "设计主题",
     "lightTheme": "浅色主题",
     "autoTheme": "自动主题",
     "darkTheme": "深色主题",
-    "reset":"重置",
-    "setAs":"设定为"
+    "reset": "重置",
+    "setAs": "设定为",
+    "eyedropper": "取色"
   },
   "router": {
     "home": "首页",
