@@ -38,7 +38,7 @@
               <v-list-item
                 v-for="(lang, index) in languageList"
                 :key="index"
-                @click="$i18n.locale = lang.value"
+                @click="setLocale(lang.value)"
               >
                 <v-list-item-title>{{ lang.label }}</v-list-item-title>
               </v-list-item>
@@ -89,21 +89,20 @@
 import theme from "@/mixins/theme";
 // 在App.vue生命周期中获取全局相关变量
 import appState from "@/mixins/appState";
+// 多语言
+import locale from "@/mixins/locale";
 // 仅在Windows系统下显示的模拟[最小化、最大化、关闭]按钮
 import WinBtn from "@/components/app/WinBtn";
+// 主题调色板
 import ThemeDesign from "@/components/app/ThemeDesign";
 
 export default {
   name: "App",
-  mixins: [theme, appState],
+  mixins: [theme, appState, locale],
   components: { WinBtn, ThemeDesign },
   data: () => ({
     dialog: false,
     drawer: null,
-    languageList: [
-      { label: "中文", value: "zh" },
-      { label: "English", value: "en" }
-    ],
     navList: [
       {
         title: "router.home",
@@ -120,12 +119,6 @@ export default {
   computed: {
     username() {
       return this.$store.state.username;
-    },
-    platform() {
-      return this.$store.state.appState.platform;
-    },
-    isMaximized() {
-      return this.$store.state.appState.isMaximized;
     }
   }
 };

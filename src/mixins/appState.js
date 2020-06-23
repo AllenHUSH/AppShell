@@ -5,22 +5,30 @@
  * 包含[操作系统]、[是否全屏||最大化]
  */
 export default {
-    created() {
-      this.getAppState();
-      this.getMaximized();
-      this.electron.ipcRenderer.send("appState");
+  computed: {
+    platform() {
+      return this.$store.state.appState.platform;
     },
-    methods: {
-      getAppState() {
-        return this.electron.ipcRenderer.on("appState", (event, arg) => {
-          this.$store.commit("setPlatform", arg.platform);
-          this.$store.commit("setIsMaximized", arg.isMaximized);
-        });
-      },
-      getMaximized() {
-        return this.electron.ipcRenderer.on("isMaximized", (event, arg) => {
-          this.$store.commit("setIsMaximized", arg);
-        });
-      }
+    isMaximized() {
+      return this.$store.state.appState.isMaximized;
     }
-  };
+  },
+  created() {
+    this.getAppState();
+    this.getMaximized();
+    this.electron.ipcRenderer.send("appState");
+  },
+  methods: {
+    getAppState() {
+      return this.electron.ipcRenderer.on("appState", (event, arg) => {
+        this.$store.commit("setPlatform", arg.platform);
+        this.$store.commit("setIsMaximized", arg.isMaximized);
+      });
+    },
+    getMaximized() {
+      return this.electron.ipcRenderer.on("isMaximized", (event, arg) => {
+        this.$store.commit("setIsMaximized", arg);
+      });
+    }
+  }
+};
