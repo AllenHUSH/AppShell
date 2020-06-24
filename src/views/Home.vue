@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../assets/logo.png" />
     <h1>This is a home page</h1>
   </div>
 </template>
@@ -9,6 +9,6 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home'
-}
+  name: "Home"
+};
 </script>

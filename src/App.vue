@@ -72,7 +72,7 @@
       <WinBtn />
     </v-app-bar>
     <!-- 主要 -->
-    <v-main :class="platform==='darwin'?'main-scroll-darwin':'main-scroll'">
+    <v-main :class="(platform==='darwin'&&!isMaximized)?'main-scroll-darwin':'main-scroll'">
       <div :class="{'show-darwin-nav':(platform==='darwin'&&!isMaximized)}"></div>
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
@@ -165,10 +165,23 @@ html {
 ::-webkit-scrollbar-thumb {
   border-radius: 1000px;
   background-color: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 1000px;
   background-color: transparent;
+
+  &:hover {
+    padding: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+::-webkit-scrollbar-button, ::-webkit-scrollbar-corner {
+  display: none;
 }
 </style>
