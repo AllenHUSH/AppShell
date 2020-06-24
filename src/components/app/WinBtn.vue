@@ -20,13 +20,15 @@ export default {
     platform() {
       return this.$store.state.appState.platform;
     },
-    isMaximized(){
-      return this.$store.state.appState.isMaximized
+    isMaximized() {
+      return this.$store.state.appState.isMaximized;
     }
   },
   methods: {
     sendMessage(message) {
-      this.electron.ipcRenderer.send(message, null);
+      if (process.env.IS_ELECTRON) {
+        this.electron.ipcRenderer.send(message, null);
+      }
     }
   }
 };

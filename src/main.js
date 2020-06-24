@@ -8,7 +8,9 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
 import i18n from './i18n'
 
-Vue.prototype.electron= window.require("electron")
+if (process.env.IS_ELECTRON) {
+  Vue.prototype.electron = window.require("electron")
+}
 
 Vue.config.productionTip = false
 

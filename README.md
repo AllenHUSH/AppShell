@@ -16,10 +16,11 @@
 + 支持国际化
 + 支持用户自定义主题颜色
 + 自定义美化滚动条
++ web与electron同构（如果后续开发也隔离两个环境）
 
 ## TODO
 + drag在Windows下对浮动nav首行的影响
-+ icon、app title
++ title、dock icon
 
 ## 参考
 + [vue-cli-plugin-electron-builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)

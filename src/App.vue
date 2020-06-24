@@ -24,7 +24,7 @@
       <template v-slot:append>
         <v-divider></v-divider>
         <div class="d-flex pa-2">
-          <v-btn icon @click="electron.shell.openExternal('https://github.com/AllenHUSH/AppShell')">
+          <v-btn icon @click="process.env.IS_ELECTRON?electron.shell.openExternal('https://github.com/AllenHUSH/AppShell'):window.open('https://github.com/AllenHUSH/AppShell')">
             <v-icon>mdi-github</v-icon>
           </v-btn>
           <v-spacer></v-spacer>
