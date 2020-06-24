@@ -24,7 +24,7 @@
       <template v-slot:append>
         <v-divider></v-divider>
         <div class="d-flex pa-2">
-          <v-btn icon @click="process.env.IS_ELECTRON?electron.shell.openExternal('https://github.com/AllenHUSH/AppShell'):window.open('https://github.com/AllenHUSH/AppShell')">
+          <v-btn icon @click="openUrl('https://github.com/AllenHUSH/AppShell')">
             <v-icon>mdi-github</v-icon>
           </v-btn>
           <v-spacer></v-spacer>
@@ -95,6 +95,8 @@ import locale from "@/mixins/locale";
 import WinBtn from "@/components/app/WinBtn";
 // 主题调色板
 import ThemeDesign from "@/components/app/ThemeDesign";
+// 工具类
+import util from "@/utils/index";
 
 export default {
   name: "App",
@@ -120,7 +122,12 @@ export default {
     username() {
       return this.$store.state.username;
     }
-  }
+  },
+  methods: {
+    openUrl(url){
+      return util.openUrl(url)
+    }
+  },
 };
 </script>
 

@@ -5,6 +5,7 @@
 + vuex
 + vueRouter
 + electron
++ PWA
 + stylus
 + vuetify
 + vue-i18n
