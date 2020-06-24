@@ -10,5 +10,9 @@ module.exports = {
       localeDir: 'locales',
       enableInSFC: true
     }
+  },
+
+  pwa: {
+    name: 'AppShell'
   }
 }

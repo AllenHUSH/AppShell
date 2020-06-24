@@ -4,7 +4,7 @@
 + vue
 + vuex
 + vueRouter
-+ electron 9.X
++ electron
 + stylus
 + vuetify
 + vue-i18n
@@ -20,7 +20,9 @@
 
 ## TODO
 + drag在Windows下对浮动nav首行的影响
-+ title、dock icon
++ 优雅的修改title
++ dock icon
++ 显性PWA支持
 
 ## 参考
 + [vue-cli-plugin-electron-builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
