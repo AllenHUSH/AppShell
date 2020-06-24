@@ -20,3 +20,6 @@
 ## TODO
 + drag在Windows下对浮动nav首行的影响
 + icon、app title
+
+## 参考
++ [vue-cli-plugin-electron-builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
