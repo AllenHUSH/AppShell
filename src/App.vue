@@ -50,7 +50,7 @@
                 <v-icon>mdi-palette</v-icon>
               </v-btn>
             </template>
-            <ThemeDesign :dialog="dialog"/>
+            <ThemeDesign :dialog="dialog" />
           </v-dialog>
           <v-btn icon @click="changeMode()">
             <v-icon>mdi-brightness-{{ [5,'auto',7][themeMode] }}</v-icon>
@@ -72,7 +72,7 @@
       <WinBtn />
     </v-app-bar>
     <!-- 主要 -->
-    <v-main>
+    <v-main :class="platform==='darwin'?'main-scroll-darwin':'main-scroll'">
       <div :class="{'show-darwin-nav':(platform==='darwin'&&!isMaximized)}"></div>
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
@@ -133,5 +133,42 @@ export default {
 .show-darwin-nav {
   height: 15px;
   width: 100%;
+}
+
+html {
+  overflow: hidden;
+}
+
+.main-scroll {
+  height: calc(100vh - 48px - 36px);
+  overflow: scroll;
+  margin-top: 48px;
+  margin-bottom: 30px;
+  padding-top: 0 !important;
+}
+
+.main-scroll-darwin {
+  height: calc(100vh - 63px - 36px);
+  overflow: scroll;
+  margin-top: 63px;
+  margin-bottom: 30px;
+  padding-top: 0 !important;
+}
+</style>
+
+<style lang="stylus">
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1000px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 1000px;
+  background-color: transparent;
 }
 </style>
