@@ -1,4 +1,4 @@
-# 一个快速Electron应用外壳
+# 一个快速Electron/PWA应用外壳
 
 ## 相关技术栈
 + vue
