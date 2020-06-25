@@ -17,12 +17,19 @@
 + 支持国际化
 + 支持用户自定义主题颜色
 + 自定义美化滚动条
-+ web与electron同构（如果后续开发也隔离两个环境）
++ Web与Electron同构（如果后续开发也隔离两个环境）
+
+## 功能指引（编辑中）
+
++ 修改title
++ 修改icon
++ 支持PWA
++ 支持并隔离ELectron api、node api
 
 ## TODO
+
 + drag在Windows下对浮动nav首行的影响
 + 优雅的修改title
-+ dock icon
 + 显性PWA支持
 
 ## 参考

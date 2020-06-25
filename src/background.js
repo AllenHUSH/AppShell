@@ -36,6 +36,7 @@ function createWindow() {
     minHeight: 350,
     frame: false,
     show: false,
+    title:"AppShell",
     titleBarStyle: 'hidden',
     icon: path.join(__static, 'icon.png'),
     webPreferences: {
@@ -45,6 +46,11 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
+
+  // 设置macoOS下dock图标
+  if (process.platform === 'darwin') {
+    app.dock.setIcon(path.join(__static, 'icon.png'));
+  }
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -128,7 +134,7 @@ function createMenu() {
   // darwin表示macOS，针对macOS的设置
   if (process.platform === "darwin") {
     const template = [{
-      label: "App Demo",
+      label: "App Shell",
       submenu: [{
           role: "about",
         },

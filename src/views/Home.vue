@@ -1,14 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <h1>This is a home page</h1>
+    <hello-world />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld";
 
 export default {
-  name: "Home"
+  name: "Home",
+  components: { HelloWorld }
 };
 </script>
