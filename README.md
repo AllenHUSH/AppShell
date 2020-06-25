@@ -30,7 +30,7 @@
 
 + drag在Windows下对浮动nav首行的影响
 + 优雅的修改title
-+ 显性PWA支持
 
 ## 参考
 + [vue-cli-plugin-electron-builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
++ [@vue/cli-plugin-pwa](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa)
