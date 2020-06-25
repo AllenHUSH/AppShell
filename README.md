@@ -31,6 +31,21 @@
 + drag在Windows下对浮动nav首行的影响
 + 优雅的修改title
 
+## 指令说明
+
+```
+# web相关
+npm run serve
+npm run build
+
+# Electron相关
+npm run electron:serve
+npm run electron:build
+
+# 修改publish/icon.png后
+npm run generate-icons
+```
+
 ## 参考
 + [vue-cli-plugin-electron-builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
 + [@vue/cli-plugin-pwa](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa)
