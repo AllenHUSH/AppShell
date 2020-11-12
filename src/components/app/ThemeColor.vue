@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(color, index) in colorList" :key="index" class="ma-1">
-      <v-btn text tile :color="color.name" @click="$emit('setColor',$vuetify.theme.themes[theme][color.name])">
+      <v-btn text tile :color="color.name" @click="$emit('set-color',$vuetify.theme.themes[theme][color.name])">
         <v-icon>mdi-eyedropper-variant</v-icon>
         {{$t('themePallet.eyedropper')}}</v-btn>
       <v-btn :color="color.name" outlined tile @click="setThemeColor(color.name)">
